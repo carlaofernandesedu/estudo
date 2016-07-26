@@ -20,6 +20,7 @@ namespace IntroMVC5.Controllers
             return View();
         }
 
+        [CustomFilters.CustomAuthentication()]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

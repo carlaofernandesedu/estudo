@@ -14,6 +14,7 @@ namespace IntroMVC5.Models
         public string UserName { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         [Display(Name ="Data de Nascimento")]
         public System.DateTime DataNascimento { get; set; }
         [Display(Name="Time de Futebol")]

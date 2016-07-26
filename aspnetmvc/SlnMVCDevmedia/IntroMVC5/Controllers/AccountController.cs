@@ -151,7 +151,7 @@ namespace IntroMVC5.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, DataNascimento = model.DataNascimento, TimeFutebol = model.TimeFutebol };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
