@@ -1,0 +1,130 @@
+﻿@using System.Web.Optimization;
+@using System.Web.Mvc;
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - Sistema Integrado Procon</title>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#2d4982">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    <link href="~/Assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="icon" href="~/favicon.ico" />
+    @Styles.Render("~/bundles/css")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <div class="container">
+        <header class="hero-spacer">
+            <div class="row">
+                <div class="col-xs-12 col-md-1 col-lg-1 form-group text-center">
+                    <img src="~/Assets/img/logo_procon.png" width="70" height="73" />
+                </div>
+                <div class="col-xs-12 col-md-3 col-lg-3 form-group text-center">
+                    <p class="tituloLayout tituloLoginSistemaintegrado" style="white-space: nowrap;">Sistema Integrado Procon</p>
+                    <p class="subtituloLayout" style="white-space: nowrap;">Secretaria da Justiça e da Defesa da Cidadania</p>
+                </div>
+                <div class="col-xs-12 col-md-8 col-lg-8 form-group">
+                    <div class="secaoHeader">
+                        @if (1==0)
+                        {
+
+                            <div class="secaoHeaderAcoes">
+                                <div class="secaoHeaderAcoesIcones">
+                                    <button type="button" id="btn-config"><i class="fa fa-2x fa-cog"></i></button>
+                                    <div class="secaoHeaderConfig">
+                                        <span class="seta-cima"></span>
+                                        <ul>
+                                            @*<li><a href="#">Meus dados</a></li>*@
+                                            <li><a href="/Usuario/AlterarSenha">Alterar Senha</a></li>
+                                            <li><a href="/Login/EncerrarSessao">Sair</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="secaoHeaderAcoesIcones">
+                                    <form action="" method="post">
+                                        <fieldset>
+                                            <ul class="toolbar clearfix">
+                                                <li><input type="search" id="search" placeholder="Buscar"><input type="submit" id="buscar" name="buscar" value="OK"></li>
+                                                <li><button class="btn btn-sm" id="btn-search"><i class="fa fa-2x fa-search"></i></button></li>
+                                            </ul>
+                                        </fieldset>
+                                    </form>
+                                </div>
+
+                            </div>
+                            <div class="secaoHeaderUsuarioData">
+                                <span class="DataUser">@DateTime.Now.ToLongDateString() @DateTime.Now.ToShortTimeString() hs</span>
+                                <span class="talqSeparador"></span>
+                                <span class="NomeUser">Olá Teste Nome Usuario</span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            @*@Html.ActionLink("Portal Procon", "Index", "Home", null)*@
+            <div class="clear"></div>
+        </header>
+        <header>
+            <nav id='cssmenu'>
+                <div class="logo">Menu</div>
+                <div id="head-mobile"></div>
+                <div class="button"></div>
+                <ul>
+                    <li class='active'><a href="/">Home</a></li>
+                    @*@Html.Partial("_Menu")*@
+                </ul>
+            </nav>
+            
+        </header>
+
+        <div class="row">
+            <div class="col-lg-6 barrabc">
+                <ol class="breadcrumb">
+                    @if (ViewContext.RouteData.Values["controller"].ToString() != "Home")
+                    {
+                        @Html.ActionLink("Home", "Index", "Home")
+                        <li class="active">
+                            / @ViewBag.Title
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="active">
+                            Home
+                        </li>
+                    }
+                </ol>
+            </div>
+            <div class="col-lg-6 text-right acessibilidade margT10">
+                <button class="btn btn-sm btn-default inc-font margT0" title="Aumentar fonte"><b>A+</b></button>
+                <button class="btn btn-sm btn-default res-font margT0" title="Tamanho normal da fonte"><b>A&nbsp;</b></button>
+                <button class="btn btn-sm btn-default dec-font margT0" title="Diminuir fonte"><b>A-</b></button>
+            </div>
+        </div>
+        <div class="row margT10">
+            <div id="conteudo_principal" class="col-lg-12 conteudo">
+                @RenderBody()
+
+            </div>
+        </div>
+        <footer class="margB0">
+            <div class="row margT10">
+                <div class="col-lg-12 left">
+                    <p class="infFoooterLeft">Prodesp - Tecnologia da Informação</p>
+                    <p class="infFoooterCenter">BUILD-NR0000000 | Servidor: 10.200.XXX.XXX</p>
+                    <p class="infFoooterRight">Suporte: ligue (11) 0800-00-0000</p>
+                </div>
+                <div class="col-lg-12">
+                    <p class="bg_footer margB0">&copy; @DateTime.Now.Year - Procon SP | Secretaria da Justiça e da Defesa da Cidadania</p>
+                </div>
+            </div>
+        </footer>
+        @Html.Partial("_Mensagem")
+    </div>
+</body>
+</html>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/scripts")

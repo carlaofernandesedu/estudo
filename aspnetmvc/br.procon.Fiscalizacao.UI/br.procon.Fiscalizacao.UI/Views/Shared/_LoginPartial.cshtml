@@ -1,0 +1,15 @@
+﻿@if (1==1)
+{
+    using (Html.BeginForm("LogOff", "Login", System.Web.Mvc.FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Olá Nome de Usuário Teste !",
+            "Manage", "Login", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="/Login/EncerrarSessao">Sair</a></li>
+        </ul>
+    }
+}

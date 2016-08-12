@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "";
+}
+<div id="divMensagem">
+    @if (TempData["Sucesso"] != null && (bool)TempData["Sucesso"] == true)
+    {
+        <div class="alert alert-success mensagemAlerta fade in">
+            <button data-dismiss="alert" class="close" type="button">×</button>
+            <div>
+                <strong>Sucesso!</strong> @TempData["Mensagem"]
+                @if (TempData["NovoCadastro"] != null && (bool)TempData["NovoCadastro"] == true)
+                {
+                    <div>
+                        @Html.ActionLink("Sim", "Create", null, new { @class = "btn btn-default", data_dismiss = "alert" })
+                        <button data-dismiss="alert" class="btn btn-default" type="button">Não</button>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else if (TempData["Sucesso"] != null && (bool)TempData["Sucesso"] == false)
+    {
+        <div class="alert alert-danger mensagemAlerta  fade in">
+            <button data-dismiss="alert" class="close" type="button">×</button>
+            <strong>Ops!</strong> @TempData["Mensagem"]
+        </div>
+    }
+</div>
+<script>
+
+</script>
